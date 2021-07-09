@@ -36,9 +36,7 @@ export default function ButtonAppBar() {
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
               <Menu />
-            {/* </MenuIcon> */}
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <Link to='/' style={styles.links}>
