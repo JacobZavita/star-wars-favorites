@@ -24,9 +24,12 @@ const App = () => {
   }
 
   const handleSearchChar = () => {
-    const chars = [...charState.chars]
-    chars.push(charState.char)
-    setCharState({ ...charState, chars, char: {} })
+    // event.preventDefault()
+    axios.get(`https://swapi.dev/api/people/?search=${charState.search}`)
+      .then(({ data }) => {
+        console.log(data)
+      })
+      .catch(err => console.log(err))
   }
 
   const handleSaveChar = () => {
@@ -39,7 +42,6 @@ const App = () => {
     <Router>
       <div>
         <Appbar />
-        <MediaCard />
         <Switch>
           <Route exact path='/'>
             <Search 

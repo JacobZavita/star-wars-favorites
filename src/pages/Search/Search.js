@@ -1,16 +1,42 @@
-// import {
-//   Container,
-//   Row,
-//   Col,
-//   Jumbotron
-// } from 'reactstrap'
-// import Form from '../../components/Form'
-// import Display from '../../components/Display'
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
-const Search = props => {
+import MediaCard from '../../components/Card'
+import Form from '../../components/Form'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
+export default function AutoGrid() {
+  const classes = useStyles();
+
   return (
-    <h1>Search Page</h1>
-  )
+    <div className={classes.root}>
+      <Grid container spacing={3}>
+        <Grid item xs>
+          <Paper className={classes.paper}>
+            <Form />
+          </Paper>
+        </Grid>
+        <Grid item xs>
+          <Paper>
+            <MediaCard />
+          </Paper>
+        </Grid>
+        {/* <Grid item xs>
+          <Paper className={classes.paper}>xs</Paper>
+        </Grid> */}
+      </Grid>
+    </div>
+  );
 }
-
-export default Search
