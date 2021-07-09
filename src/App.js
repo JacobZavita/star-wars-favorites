@@ -10,7 +10,8 @@ import {
 import Search from './pages/Search'
 import Saved from './pages/Saved'
 import Appbar from './components/Appbar'
-import MediaCard from './components/Card' 
+// import MediaCard from './components/Card' 
+import BottomAppBar from './components/BottomBar'
 
 const App = () => {
   const [charState, setCharState] = useState({
@@ -58,6 +59,7 @@ const App = () => {
             />
           </Route>
         </Switch>
+        <BottomAppBar />
       </div>
     </Router>
   )
