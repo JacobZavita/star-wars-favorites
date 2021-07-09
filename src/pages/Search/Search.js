@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AutoGrid() {
+const AutoGrid = props => {
   const classes = useStyles();
 
   return (
@@ -25,18 +25,28 @@ export default function AutoGrid() {
       <Grid container spacing={3}>
         <Grid item xs>
           <Paper className={classes.paper}>
-            <Form />
+            <Form 
+              search={props.search}
+              handleInputChange={props.handleInputChange}
+              handleSearchChar={props.handleSearchChar}
+            />
           </Paper>
         </Grid>
         <Grid item xs>
           <Paper>
-            <MediaCard />
+            {
+              props.char.hasOwnProperty('name')
+                ? <MediaCard 
+                    char={props.char}
+                    handleSaveChar={props.handleSaveChar}
+                  />
+                : null
+            }
           </Paper>
         </Grid>
-        {/* <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid> */}
       </Grid>
     </div>
   );
 }
+
+export default AutoGrid

@@ -23,8 +23,8 @@ const App = () => {
     setCharState({ ...charState, [target.name]: target.value })
   }
 
-  const handleSearchChar = () => {
-    // event.preventDefault()
+  const handleSearchChar = event => {
+    event.preventDefault()
     axios.get(`https://swapi.dev/api/people/?search=${charState.search}`)
       .then(({ data }) => {
         console.log(data)

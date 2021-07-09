@@ -1,7 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import ContainedButtons from '../Button'
+
+import Button from '@material-ui/core/Button';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,13 +14,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BasicTextFields() {
+const BasicTextFields = props => {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form
+      className={classes.root}
+      noValidate
+      autoComplete="off"
+      value={props.search}
+      onChange={props.handleInputChange}
+      handleSearchChar={props.handleSearchChar}
+    >
       <TextField id="outlined-basic" label="Search A Character" variant="outlined" />
-      <ContainedButtons />
+
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={props.handleSearchChar}
+      >
+        Search
+      </Button>
     </form>
   );
 }
+
+export default BasicTextFields
