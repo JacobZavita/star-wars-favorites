@@ -15,6 +15,13 @@ export default function SimpleMenu() {
     setAnchorEl(null);
   };
 
+  const styles = {
+    links: {
+      textDecoration: 'none',
+      color: 'inherit'
+    }
+  }
+
   return (
     <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
@@ -28,12 +35,12 @@ export default function SimpleMenu() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <Link to='/'>
+          <Link to='/' style={styles.links}>
             Search
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to='/saved'>
+          <Link to='/saved' style={styles.links}>
             Saved
           </Link>
         </MenuItem>
